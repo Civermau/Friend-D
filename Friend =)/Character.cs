@@ -1,10 +1,17 @@
 ﻿using System;
 using System.Text.Json.Serialization;
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.CompilerServices;
 
 public class Character
 {
-    [JsonPropertyName("Name")]
-    public String name { get; set; }
+    Random random = new Random();
+
+    [JsonPropertyName("firstName")]
+    public String firstName { get; set; }
+    [JsonPropertyName("lastName")]
+    public String lastName { get; set; }
 
     [JsonPropertyName("personality")]
     public personalities personality { get; set; }
@@ -22,14 +29,22 @@ public class Character
     public int age { get; set; }
 
 
-    public Character(String name, personalities personality, Moods mood, string place, string activity, int age)
+    public Character(String firstName, String lastName, personalities personality, Moods mood, string place, string activity, int age)
     {
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.personality = personality;
         this.mood = mood;
         this.place = place;
         this.activity = activity;
         this.age = age;
+    }
+    public String getRandomName(string filePath)
+    {
+        String[] lines;
+        lines = System.IO.File.ReadAllLines(filePath);
+        int rand = random.Next(80);
+        return lines[rand];
     }
 }
 public enum personalities

@@ -2,7 +2,7 @@
 
 public class Player : Character
 {
-    public Player(String name, personalities personality, Moods mood, string place, string activity, int age) : base(name, personality, mood, place, activity, age)
+    public Player(String firstName, String lastName, personalities personality, Moods mood, string place, string activity, int age) : base(firstName, lastName, personality, mood, place, activity, age)
     {
     }
 
