@@ -20,21 +20,33 @@ public class Character
     public String mood { get; set; }
 
     [JsonPropertyName("place")]
-    public string place { get; set; }
+    public String place { get; set; }
 
     [JsonPropertyName("activity")]
-    public string activity { get; set; }
+    public String activity { get; set; }
 
     [JsonPropertyName("age")]
     public int age { get; set; }
 
 
-    public Character(String firstName, String lastName, String personality, String mood, string place, string activity, int age)
+    public Character(String place, String activity, int age)
     {
         this.firstName = getRandomFileString("Fnames.csv");
         this.lastName = getRandomFileString("Lnames.csv");
         this.personality = getRandomFileString("Personalities.csv");
         this.mood = getRandomFileString("Moods.csv");
+        this.place = place;
+        this.activity = activity;
+        this.age = age;
+    }
+
+    [JsonConstructor]
+    public Character(String firstName, String lastName, String personality, String mood, String place, String activity, int age)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.personality = personality;
+        this.mood = mood;
         this.place = place;
         this.activity = activity;
         this.age = age;
@@ -45,11 +57,12 @@ public class Character
         String[] lines;
         lines = System.IO.File.ReadAllLines(filePath);
         lenght = Array.FindIndex(lines, element => element == "NULL");
-        if (lenght == -1)
+        lenght--;
+        if (lenght < 0)
         {
             lenght = 0;
         }
-        int rand = random.Next(lenght);
+        int rand = random.Next(lenght) + 1;
         return lines[rand];
     }
 }
