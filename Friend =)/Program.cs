@@ -7,14 +7,10 @@ class Program
         string filePath = "characters.json";
         CharacterManager characterManager = new CharacterManager(filePath);
 
-        Character character1 = new Character("", "", personalities.Extroverted, Moods.Happy, "Park", "Playing", 25);
-        character1.firstName = character1.getRandomName("Fnames.csv");
-        character1.lastName = character1.getRandomName("Lnames.csv");
+        Character character1 = new Character("", "", "", "", "1,1", "Playing", 25);
         characterManager.SaveCharacter(character1);
 
-        Character character2 = new Character("", "", personalities.Introverted, Moods.Sad, "Home", "Reading", 30);
-        character2.firstName = character1.getRandomName("Fnames.csv");
-        character2.lastName = character1.getRandomName("Lnames.csv");
+        Character character2 = new Character("", "", "", "", "1,2", "Reading", 30);
         characterManager.SaveCharacter(character2);
 
         List<Character> loadedCharacters = characterManager.LoadCharacters();
