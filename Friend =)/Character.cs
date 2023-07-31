@@ -63,6 +63,7 @@ public class Character
             lenght = 0;
         }
         int rand = random.Next(lenght) + 1;
-        return lines[rand];
+        String[] column = lines[rand].Split(',');
+        return column[0];
     }
 }
