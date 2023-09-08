@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
-using System.IO;
 using System.Runtime.CompilerServices;
 
 public class Character
 {
-    Random random = new Random();
+    static Random random = new Random();
 
     [JsonPropertyName("firstName")]
     public String firstName { get; set; }

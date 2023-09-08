@@ -6,7 +6,7 @@ class Program
     static void Main()
     {
         string filePath = "characters.json";
-        CharacterManager characterManager = new CharacterManager(filePath);
+        CharacterManager characterManager = new CharacterManager(filePath);  
 
         Character character1 = new Character("1,1", "Playing", 25);
         characterManager.SaveCharacter(character1);
